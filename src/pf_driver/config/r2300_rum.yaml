@@ -1,0 +1,20 @@
+R235:
+  transport: "udp"
+  scanner_ip: "169.254.235.10"
+  start_angle: -450000
+  max_num_points_scan: 0
+  packet_type: "C1"
+  scan_topic: "/235/cloud"
+  frame_id: "scan"
+  watchdogtimeout: 0
+  watchdog: false
+R236:
+  transport: "udp"
+  scanner_ip: "169.254.236.10"
+  start_angle: -450000
+  max_num_points_scan: 0
+  packet_type: "C1"
+  scan_topic: "/236/cloud"
+  frame_id: "scanner"
+  watchdogtimeout: 0
+  watchdog: false
