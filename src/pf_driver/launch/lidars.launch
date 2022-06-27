@@ -3,18 +3,20 @@
   <arg name="device" default="R2300"/>
 
 
-  <node pkg="pf_driver" type="ros_main" name="r2300_node_235" output="screen">
+  <node pkg="pf_driver" type="ros_main" name="r2300_two" output="screen">
     <param name="device" value="$(arg device)"/>
-    <rosparam file="$(find pf_driver)/config/r2300_params_235.yaml" command="load"/>
+    <rosparam file="$(find pf_driver)/config/r2300_params_2.yaml" command="load"/>
+    <rosparam file="$(find pf_driver)/config/correction_params.yaml" command="load"/>
   </node>
   <node pkg="tf" type="static_transform_publisher" name="ring1_235" args="0 0 0 0 0.0785 0 base_link scanner_1 10" />
   <node pkg="tf" type="static_transform_publisher" name="ring2_235" args="0 0 0 0 0.0262 0 base_link scanner_2 10" />
   <node pkg="tf" type="static_transform_publisher" name="ring3_235" args="0 0 0 0 -0.0785 0 base_link scanner_3 10" />
   <node pkg="tf" type="static_transform_publisher" name="ring4_235" args="0 0 0 0 -0.0262 0 base_link scanner_4 10" />
 
-  <node pkg="pf_driver" type="ros_main" name="r2300_node_236" output="screen">
+  <node pkg="pf_driver" type="ros_main" name="r2300_three" output="screen">
     <param name="device" value="$(arg device)"/>
-    <rosparam file="$(find pf_driver)/config/r2300_params_236.yaml" command="load"/>
+    <rosparam file="$(find pf_driver)/config/r2300_params_3.yaml" command="load"/>
+    <rosparam file="$(find pf_driver)/config/correction_params.yaml" command="load"/>
   </node>
   <node pkg="tf" type="static_transform_publisher" name="ring1_236" args="0 0 0 0 0.0785 0 base_link scanner_1 10" />
   <node pkg="tf" type="static_transform_publisher" name="ring2_236" args="0 0 0 0 0.0262 0 base_link scanner_2 10" />

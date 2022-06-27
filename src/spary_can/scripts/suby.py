@@ -38,8 +38,8 @@ def callback_236(data):
 
 def main():
     rospy.init_node('listener', anonymous=True)
-    rospy.Subscriber("/235/cloud_1", LaserScan, callback_235)
-    rospy.Subscriber("/236/cloud_1", LaserScan, callback_236)
+    rospy.Subscriber("/two/cloud_1", LaserScan, callback_235)
+    rospy.Subscriber("/three/cloud_1", LaserScan, callback_236)
     rospy.spin()
 
 
