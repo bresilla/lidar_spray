@@ -1,7 +1,7 @@
-#!/usr/bin/env python
-
+import rospy
+from sensor_msgs.msg import LaserScan
+from std_msgs.msg import Int16
 import can
-import time
 
 can.rc['interface'] = 'socketcan'
 can.rc['channel'] = 'can0'
@@ -19,12 +19,20 @@ def send2can(id, by):
     except can.CanError:
         print("Message NOT sent")
 
-def main():
-    id = 0x14FF8099
-    by = 0x01
-    while True:
+def publisher():
+    pub = rospy.Publisher('/heartbeat', Int16, queue_size=10)
+    rospy.init_node('heartbeat', anonymous=True)
+    rate = rospy.Rate(5)
+    while not rospy.is_shutdown():
+        id = 0x14FF8099
+        by = 0x01
         send2can(id, by)
-        time.sleep(0.2)
+        rospy.loginfo(by)
+        pub.publish(by)
+        rate.sleep()
 
 if __name__ == '__main__':
-    main()
+    try:
+        publisher()
+    except rospy.ROSInterruptException:
+        pass
