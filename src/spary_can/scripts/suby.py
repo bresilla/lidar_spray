@@ -3,10 +3,11 @@ import rospy
 import numpy as np
 from std_msgs.msg import Int32MultiArray
 import can
+import socket
+
 
 can.rc['interface'] = 'socketcan'
-# can.rc['channel'] = 'can0'
-can.rc['channel'] = 'vcan0'
+can.rc['channel'] = "vcan0" if socket.gethostname() == "focal" else "can0"
 can.rc['bitrate'] = 500000
 
 from can.interface import Bus

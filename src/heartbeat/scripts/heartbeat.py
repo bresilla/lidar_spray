@@ -2,9 +2,10 @@ import rospy
 from sensor_msgs.msg import LaserScan
 from std_msgs.msg import Int16
 import can
+import socket
 
 can.rc['interface'] = 'socketcan'
-can.rc['channel'] = 'can0'
+can.rc['channel'] = "vcan0" if socket.gethostname() == "focal" else "can0"
 can.rc['bitrate'] = 500000
 
 from can.interface import Bus
