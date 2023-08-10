@@ -163,6 +163,7 @@ catkin_install_python(PROGRAMS
   scripts/regions.py
   scripts/joiner.py
   scripts/delay.py
+  scripts/nodelay.py
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
